@@ -14,8 +14,10 @@ public class Name {
 
     @Override
     public int hashCode() {
-
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((name == null) ? 0 : name.hashCode());
+        return result;
     }
 
     @Override

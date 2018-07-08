@@ -23,8 +23,10 @@ public class Orderings {
 
     @Override
     public int hashCode() {
-
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((orderings == null) ? 0 : orderings.hashCode());
+        return result;
     }
 
     @Override

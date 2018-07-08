@@ -20,7 +20,11 @@ public class Ordering {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((afterEvent == null) ? 0 : afterEvent.hashCode());
+        result = prime * result + ((beforeEvent == null) ? 0 : beforeEvent.hashCode());
+        return result;
     }
 
     @Override

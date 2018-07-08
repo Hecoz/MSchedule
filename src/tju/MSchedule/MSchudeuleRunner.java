@@ -85,7 +85,7 @@ public class MSchudeuleRunner extends BlockJUnit4ClassRunner{
                 }
             }
             MSchedule.clearSchedule();
-        }else{
+        }else {
 
             super.runChild(method, notifier);
         }
@@ -129,7 +129,6 @@ public class MSchudeuleRunner extends BlockJUnit4ClassRunner{
 
         try {
             schedules.put(schName, new ScheduleParser(new StringReader(schedule.value())).Orderings());
-
         } catch (ParseException e) {
             this.currentTestNotifier.fireTestFailure(new Failure(describeChild(this.currentTestMethod), new ScheduleError(schName, String.format(
                     INVALID_SYNTAX_MESSAGE, schName, schedule.value(), e))));
@@ -141,6 +140,7 @@ public class MSchudeuleRunner extends BlockJUnit4ClassRunner{
         //String[] Orderings = schName.split("->");
         //schedules.put(Orderings[0],Orderings[1]);
     }
+
 
     /**
      * Class that detects termination of a thread group either normally or via a deadlock.

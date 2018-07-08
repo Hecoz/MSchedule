@@ -21,7 +21,11 @@ public class SimpleEvent implements Event{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((eventName == null) ? 0 : eventName.hashCode());
+        result = prime * result + ((threadName == null) ? 0 : threadName.hashCode());
+        return result;
     }
 
     @Override

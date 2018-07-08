@@ -28,7 +28,12 @@ public class BlockEvent implements Event {
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((blockAfterEventName == null) ? 0 : blockAfterEventName.hashCode());
+        result = prime * result + ((blockBeforeEventName == null) ? 0 : blockBeforeEventName.hashCode());
+        result = prime * result + ((threadName == null) ? 0 : threadName.hashCode());
+        return result;
     }
 
     @Override

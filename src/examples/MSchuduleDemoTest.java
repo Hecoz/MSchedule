@@ -9,7 +9,7 @@ import tju.MSchedule.Schedules;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-import static org.junit.Assert.assertEquals;
+import static junit.framework.Assert.assertEquals;
 import static tju.MSchedule.MSchedule.fireEvent;
 import static tju.MSchedule.MSchedule.schAssertEquals;
 
@@ -67,6 +67,7 @@ public class MSchuduleDemoTest {
         System.out.println("First Test Start...");
         System.out.println("01-testOfferOfferTake:");
         performParallelOfferssAndTake();
+        System.out.println(queue.size());
         assertEquals(0, queue.size());
         System.out.println("----------------------------------------");
     }
