@@ -142,7 +142,11 @@ public class MSchudeuleRunner extends BlockJUnit4ClassRunner{
         //schedules.put(Orderings[0],Orderings[1]);
     }
 
-
+    /**
+     * Class that detects termination of a thread group either normally or via a deadlock.
+     * 检测线程是否正常结束，是否有调度未执行，是否有死锁，不设计线程调度
+     * @author Vilas
+     */
     final class TerminationDetector implements Runnable{
 
 
@@ -170,6 +174,7 @@ public class MSchudeuleRunner extends BlockJUnit4ClassRunner{
                 }
 
                 /* If all active threads are blocked/waiting its a deadlock */
+                //所有的线程都 block/waiting,死锁，报错
                 Thread[] activeThreads = new Thread[group.activeCount()];
 
                 int numInArray = group.enumerate(activeThreads);
@@ -195,6 +200,7 @@ public class MSchudeuleRunner extends BlockJUnit4ClassRunner{
 
             }
             /* Terminated normally. Report a failure if any after-events were not encountered */
+            //程序运行正常，但调度中事件并没发生，报错
             Set<String> unEncouteredAfterEvents = MSchedule.getCurrentOrderings().keySet();
             unEncouteredAfterEvents.removeAll(MSchedule.getCurrentHappenedEvents().keySet());
             if(!unEncouteredAfterEvents.isEmpty()){
