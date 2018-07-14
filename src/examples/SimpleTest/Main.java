@@ -1,5 +1,7 @@
 package examples.SimpleTest;
 
+import static tju.MSchedule.MSchedule.fireEvent;
+
 public class Main {
 
     public static void main(String[] args){
@@ -11,9 +13,13 @@ public class Main {
             int a = 0 , b = 0;
             public void run() {
 
+                fireEvent("Thread1assigna");
                 a = hspn.x;
+                fireEvent("Thread1changex");
                 hspn.x = a - 1;
+                fireEvent("Thread1assignb");
                 b = hspn.y;
+                fireEvent("Thread1changey");
                 hspn.y = b + 1;
             }
         };
@@ -21,7 +27,9 @@ public class Main {
         Thread thread2 = new Thread() {
             int c = 0;
             public void run() {
+                fireEvent("Thread2assignc");
                c = hspn.x;
+                fireEvent("Thread2changey");
                hspn.y = c - 1;
                if(hspn.y <= 0 ){
                    System.out.println(hspn.y);
