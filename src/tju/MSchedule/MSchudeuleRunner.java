@@ -9,7 +9,6 @@ import org.junit.runners.model.InitializationError;
 import tju.MSchedule.moudles.*;
 
 import java.io.StringReader;
-import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
