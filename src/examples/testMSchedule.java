@@ -33,6 +33,7 @@ public class testMSchedule {
 
                         System.out.println("Method Annotations:" + annotation.value());
                     }
+                    System.out.println("email test");
                     System.out.println(" - - - - - - - - - - - - - - - - ");
                 } catch (Exception e) {
 
